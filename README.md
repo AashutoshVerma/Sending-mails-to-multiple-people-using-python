@@ -20,3 +20,9 @@ Step 2:
   
 Step 3:
   Just run the script!!!! its ready to deliver your mails:)
+
+## update : 
+  As per google's new policy update you need to create app password to allow the third party application to use google's mail service. Below given are some link to know   how to do it : 
+  https://www.youtube.com/watch?v=pAPWBHxnFHM
+  
+  happy learning :)
