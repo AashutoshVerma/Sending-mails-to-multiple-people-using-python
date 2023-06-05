@@ -33,21 +33,29 @@ wb = xlrd.open_workbook("file-name") # 'mail-ids' is the name of excel file whic
 sheet = wb.sheet_by_index(0)
 
 
+# remove these comment when you will change your code
+# here I will make some changes and make my own comments to tell you the changes I made.
+#AADI I will add AADi after # to tell you that I have made this comment.
+
+
+#AADI keeping only parameter with variable "i" in the loop
+msg=EmailMessage()
+msg['Subject']='Test OTP'  # Write the subject of you email here. 
+msg['From']='From-email_id'
+
+#AADI server start here
+server= smtplib.SMTP_SSL("smtp.gmail.com",465)
+server.login("From-email_id","password")
+
+#AADI for loop start here
 for i in range(sheet.nrows): #for sending the mails to each of the mail-id in the file. 
-        msg=EmailMessage()
-        msg['Subject']='Test OTP'  # Write the subject of you email here. 
-        msg['From']='From-email_id'
+        
         msg['To']=sheet.cell_value(i,0)
-        print(sheet.cell_value(i,0))
+#AADI        print(sheet.cell_value(i,0))  Why is there a print in the finished code? Just comment it out.
         msg.add_alternative(a, subtype='html')  # This is used to format the email content using html format. 
-
+        server.send_message(msg) #AADI sending the message
 # msg.add_attachment(img_file,maintype='image',subtype=img_type,filename=img_name) # for attaching images uncomment this.
-
 # msg.add_attachment(pdf_file,maintype='application',subtype='octet-stream',filename=pdf_name) # for attaching pdfs uncomment this.
 
-
-        server= smtplib.SMTP_SSL("smtp.gmail.com",465)
-        server.login("From-email_id","password")
-        server.send_message(msg)
-
-        server.quit()
+#AADI server quit here as no quit required in the for loop.
+server.quit()
